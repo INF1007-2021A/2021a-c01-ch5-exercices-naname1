@@ -4,31 +4,84 @@
 
 from typing import List
 
-
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number >= 0:
+        return number
+    if number < 0:
+        return -number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
+    resultat = [""]*len(prefixes)
 
-    return [""]
+    for k in range(len(prefixes)):
+        resultat[k] = prefixes[k]+suffixe
+
+    return resultat
 
 
 def prime_integer_summation() -> int:
+    #k=2
+    #while True:
+
     return 0
 
 
 def factorial(number: int) -> int:
-    return 0
+    #if ((number % 1) != number) | (number < 0):
+    #    print("Le nombre n'est pas entier ou est negatif.")
+    #    return None
+    if number == 0 | number == 1:
+        return 1
+
+    resultat = 1
+    for k in range(2,number):
+        resultat *= k
+
+    return resultat
 
 
 def use_continue() -> None:
+    for k in range(11):
+        if k == 5:
+            continue
+        print(k)
     pass
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    result = [True]*len(groups)
+    #for (k,j) in product(len(groups),len):
+
+    for k in range(0,len(groups)):
+        curr_group = groups[k]
+        curr_len = len(curr_group)
+        temp_critere = True
+
+        if curr_len > 10 or curr_len <= 3:
+            result[k] = False
+            continue
+
+        possede_50ans = False
+        possede_70ans_plus = False
+        for j in range(0, curr_len):
+            if(curr_group[j] == 25):
+                temp_critere = True
+                break
+            if(curr_group[j] < 18):
+                temp_critere = False
+            if(curr_group[j] > 70):
+                possede_70ans_plus = True
+            if(curr_group[j] == 50):
+                possede_50ans = True
+            if(possede_70ans_plus and possede_50ans):
+                temp_critere = False
+
+        result[k] = temp_critere
+
+
+    return result
 
 
 def main() -> None:
