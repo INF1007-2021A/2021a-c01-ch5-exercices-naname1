@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
+import math
 from typing import List
 
 def convert_to_absolute(number: float) -> float:
@@ -21,13 +20,6 @@ def use_prefixes() -> List[str]:
     return resultat
 
 
-def prime_integer_summation() -> int:
-    #k=2
-    #while True:
-
-    return 0
-
-
 def factorial(number: int) -> int:
     #if ((number % 1) != number) | (number < 0):
     #    print("Le nombre n'est pas entier ou est negatif.")
@@ -41,6 +33,32 @@ def factorial(number: int) -> int:
 
     return resultat
 
+def prime_integer_summation() -> int:
+    #k=2
+    sumprimes = 0
+    k = 2
+    n = 0
+    dividible = False
+    while True:
+        i = 2
+        while (i*i <= k): #vérifier les diviseurs avant la racine de k
+            if k % i == 0:
+                dividible = True
+                break
+            i += 1
+
+        if dividible:
+            dividible = False
+            k += 1
+            continue
+
+        #Si on est arriver ici, k est premier
+        n += 1
+        sumprimes += k
+        k += 1
+        if n == 100:
+            break
+    return sumprimes
 
 def use_continue() -> None:
     for k in range(11):
