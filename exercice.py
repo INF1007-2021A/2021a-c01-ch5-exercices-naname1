@@ -38,17 +38,17 @@ def prime_integer_summation() -> int:
     sumprimes = 0
     k = 2
     n = 0
-    dividible = False
-    while True:
-        i = 2
-        while (i*i <= k): #vérifier les diviseurs avant la racine de k
-            if k % i == 0:
-                dividible = True
+    divisible = False
+    while n < 100:
+        diviseur = 2
+        while (diviseur*diviseur <= k): #vérifier les diviseurs avant la racine de k
+            if k % diviseur == 0:
+                divisible = True
                 break
-            i += 1
+            diviseur += 1
 
-        if dividible:
-            dividible = False
+        if divisible:
+            divisible = False
             k += 1
             continue
 
@@ -56,8 +56,6 @@ def prime_integer_summation() -> int:
         n += 1
         sumprimes += k
         k += 1
-        if n == 100:
-            break
     return sumprimes
 
 def use_continue() -> None:
@@ -83,6 +81,8 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
 
         possede_50ans = False
         possede_70ans_plus = False
+        # if 25 in curr_group[j]: ...
+        # if (min(curr_coupr[j]) < 18) or (50 in curr_group[j] and max(curr_group[j])>70): ...
         for j in range(0, curr_len):
             if(curr_group[j] == 25):
                 temp_critere = True
